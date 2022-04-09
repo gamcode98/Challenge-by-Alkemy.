@@ -1,0 +1,5 @@
+node_modules
+mysql_data
+postgres_data
+.env
+comandos-docker

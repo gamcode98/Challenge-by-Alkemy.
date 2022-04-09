@@ -1,0 +1,34 @@
+GET http://localhost:3000/api/v1/movies
+###
+GET http://localhost:3000/api/v1/movies/2
+###
+POST http://localhost:3000/api/v1/movies
+content-type: application/json
+
+{   
+   "image": "http://placeimg.com/640/400",
+   "title": "the king 1 ",
+   "score": 5
+}
+
+###
+POST http://localhost:3000/api/v1/movies/add-character
+content-type: application/json
+
+{   
+   "movieId": 2,
+   "characterId": 1   
+}
+
+###
+PUT http://localhost:3000/api/v1/movies/2
+content-type: application/json
+
+{   
+   "image": "http://placeimg.com/640/300",
+   "title": "king of kings",
+   "score": 2   
+}
+
+### 
+DELETE  http://localhost:3000/api/v1/movies/1

@@ -1,0 +1,35 @@
+GET http://localhost:3000/api/v1/characters
+
+
+###
+GET http://localhost:3000/api/v1/characters/1
+
+
+###
+POST http://localhost:3000/api/v1/characters
+content-type: application/json
+
+{   
+   "image": "http://placeimg.com/640/300",
+   "name": "lalo",
+   "age": 34,
+   "weight": 23.2,
+   "history": "otra vez lalo ...."
+   
+}
+
+###
+PUT http://localhost:3000/api/v1/characters/1
+content-type: application/json
+
+{   
+   "image": "http://placeimg.com/640/300",
+   "name": "queen",
+   "age": 22,
+   "weight": 212.2,
+   "history": "otra vez ...."
+   
+}
+
+### 
+DELETE  http://localhost:3000/api/v1/characters/2
