@@ -4,17 +4,20 @@ GET http://localhost:3000/api/v1/movies
 ### Getting a movie by id
 GET http://localhost:3000/api/v1/movies/2
 
+### Getting a movie by name
+GET http://localhost:3000/api/v1/movies?name=theone
+
 ### Creating a movie
 POST http://localhost:3000/api/v1/movies
 content-type: application/json
 
 {   
    "image": "http://placeimg.com/640/400",
-   "title": "the simon  ",
+   "title": "theone",
    "score": 5
 }
 
-### Asociete a movie with a character include
+### Associate a movie with a character 
 POST http://localhost:3000/api/v1/movies/add-character
 content-type: application/json
 

@@ -19,6 +19,13 @@ class MovieService {
     return rta;
   }
 
+  async findByName(objName) {
+    const rta = await models.Movie.findAll({
+      where: objName,
+    });
+    return rta;
+  }
+
   async findOne(id) {
     const movie = await models.Movie.findByPk(id, {
       include: ["characters"],

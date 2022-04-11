@@ -11,11 +11,22 @@ const router = express.Router();
 const service = new MovieService();
 
 router.get("/", async (req, res, next) => {
-  try {
-    const movies = await service.find();
-    res.json(movies);
-  } catch (error) {
-    next(error);
+  const objQuery = req.query;
+  if (Object.keys(objQuery).length !== 0) {
+    if (objQuery.hasOwnProperty("name")) {
+      let objMovie = { title: `${objQuery["name"]}` };
+      const movieByName = await service.findByName(objMovie);
+      res.json(movieByName);
+    } else {
+      res.json({ message: "The query does not exist" });
+    }
+  } else {
+    try {
+      const movies = await service.find();
+      res.json(movies);
+    } catch (error) {
+      next(error);
+    }
   }
 });
 
