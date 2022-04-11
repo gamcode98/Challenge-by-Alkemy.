@@ -12,11 +12,31 @@ const router = express.Router();
 const service = new CharacterService();
 
 router.get("/", async (req, res, next) => {
-  try {
-    const characters = await service.find();
-    res.json(characters);
-  } catch (error) {
-    next(error);
+  const objQuery = req.query;
+  if (Object.keys(objQuery).length !== 0) {
+    if (objQuery.hasOwnProperty("name")) {
+      const charactersByName = await service.findByName(objQuery);
+      res.json(charactersByName);
+    } else if (objQuery.hasOwnProperty("age")) {
+      const charactersByAges = await service.findByAges(objQuery);
+      res.json(charactersByAges);
+    } else if (objQuery.hasOwnProperty("weight")) {
+      const charactersByWeight = await service.findByWeight(objQuery);
+      res.json(charactersByWeight);
+    } else if (objQuery.hasOwnProperty("movies")) {
+      const idMovie = objQuery["movies"];
+      const charactersByMovies = await service.findByMovies(idMovie);
+      res.json(charactersByMovies);
+    } else {
+      res.json({ message: "The query does not exist" });
+    }
+  } else {
+    try {
+      const characters = await service.find();
+      res.json(characters);
+    } catch (error) {
+      next(error);
+    }
   }
 });
 

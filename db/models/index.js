@@ -13,7 +13,7 @@ function setupModels(sequelize) {
   MovieCharacter.init(MovieCharacterSchema, MovieCharacter.config(sequelize));
 
   Movie.associate(sequelize.models);
-  // Character.associate(sequelize.models);
+  Character.associate(sequelize.models);
 }
 
 module.exports = setupModels;

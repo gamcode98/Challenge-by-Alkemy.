@@ -1,26 +1,29 @@
+### Getting all movies
 GET http://localhost:3000/api/v1/movies
-###
+
+### Getting a movie by id
 GET http://localhost:3000/api/v1/movies/2
-###
+
+### Creating a movie
 POST http://localhost:3000/api/v1/movies
 content-type: application/json
 
 {   
    "image": "http://placeimg.com/640/400",
-   "title": "the king 1 ",
+   "title": "the simon  ",
    "score": 5
 }
 
-###
+### Asociete a movie with a character include
 POST http://localhost:3000/api/v1/movies/add-character
 content-type: application/json
 
 {   
-   "movieId": 2,
-   "characterId": 1   
+   "movieId": 6,
+   "characterId": 5   
 }
 
-###
+### Updating a movie by id
 PUT http://localhost:3000/api/v1/movies/2
 content-type: application/json
 
@@ -30,5 +33,5 @@ content-type: application/json
    "score": 2   
 }
 
-### 
-DELETE  http://localhost:3000/api/v1/movies/1
+### Deleting a movie by id
+DELETE  http://localhost:3000/api/v1/movies/4

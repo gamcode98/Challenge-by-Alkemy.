@@ -11,10 +11,14 @@ class MovieService {
     const newCharacter = await models.MovieCharacter.create(data);
     return newCharacter;
   }
+
   async find() {
-    const rta = await models.Movie.findAll();
+    const rta = await models.Movie.findAll({
+      attributes: ["image", "title", "createdAt"],
+    });
     return rta;
   }
+
   async findOne(id) {
     const movie = await models.Movie.findByPk(id, {
       include: ["characters"],
@@ -24,6 +28,7 @@ class MovieService {
     }
     return movie;
   }
+
   async update(id, changes) {
     const movie = await this.findOne(id);
     const rta = await movie.update(changes);
