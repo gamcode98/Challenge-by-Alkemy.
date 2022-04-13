@@ -9,6 +9,8 @@ const {
 } = require("../schemas/character.schema");
 
 const router = express.Router();
+const passport = require("passport");
+
 const service = new CharacterService();
 
 router.get("/", async (req, res, next) => {
@@ -74,6 +76,7 @@ router.get(
 
 router.post(
   "/",
+  passport.authenticate("jwt", { session: false }),
   validatorHandler(createCharacterSchema, "body"),
   async (req, res, next) => {
     try {

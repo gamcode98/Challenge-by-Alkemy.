@@ -21,13 +21,14 @@ GET http://localhost:3000/api/v1/characters/3
 ### Creating a character
 POST http://localhost:3000/api/v1/characters
 content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQsImlhdCI6MTY0OTg1NTcxMH0.w1v3C4UqhkeU_leD5NDy_V1kKyZQCVuPo16k2-CQx5g
 
 {   
    "image": "http://placeimg.com/640/300",
-   "name": "joako",
-   "age": 33,
-   "weight": 90,
-   "history": "otra vez kasooss ...."
+   "name": "sakyra",
+   "age": 45,
+   "weight": 56,
+   "history": "otra vez dakuy ...."
    
 }
 
