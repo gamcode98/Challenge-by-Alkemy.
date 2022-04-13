@@ -1,4 +1,5 @@
 const boom = require("@hapi/boom");
+const { Gender } = require("../db/models/gender.model");
 const { models } = require("../libs/sequelize");
 
 class MovieService {
@@ -14,7 +15,8 @@ class MovieService {
 
   async find() {
     const rta = await models.Movie.findAll({
-      attributes: ["image", "title", "createdAt"],
+      attributes: ["id", "image", "title", "createdAt"],
+      include: ["genders"],
     });
     return rta;
   }
@@ -22,6 +24,26 @@ class MovieService {
   async findByName(objName) {
     const rta = await models.Movie.findAll({
       where: objName,
+    });
+    return rta;
+  }
+
+  async findByGender(idGender) {
+    const rta = await models.Movie.findAll({
+      include: [
+        {
+          model: Gender,
+          as: "genders",
+          where: { id: idGender },
+        },
+      ],
+    });
+    return rta;
+  }
+
+  async findByOrder(order) {
+    const rta = await models.Movie.findAll({
+      order: [["createdAt", order]],
     });
     return rta;
   }

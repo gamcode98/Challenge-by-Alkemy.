@@ -21,6 +21,14 @@ const GenderSchema = {
 };
 
 class Gender extends Model {
+  static associate(models) {
+    this.belongsToMany(models.Movie, {
+      as: "movies",
+      through: models.GenderMovie,
+      foreignKey: "genderId",
+      otherKey: "movieId",
+    });
+  }
   static config(sequelize) {
     return {
       sequelize,

@@ -37,6 +37,12 @@ class Movie extends Model {
       foreignKey: "movieId",
       otherKey: "characterId",
     });
+    this.belongsToMany(models.Gender, {
+      as: "genders",
+      through: models.GenderMovie,
+      foreignKey: "movieId",
+      otherKey: "genderId",
+    });
   }
   static config(sequelize) {
     return {

@@ -5,6 +5,7 @@ const {
   createGenderSchema,
   updateGenderSchema,
   getGenderSchema,
+  addMovieSchema,
 } = require("./../schemas/gender.schema");
 const router = express.Router();
 const service = new GenderService();
@@ -26,6 +27,20 @@ router.post(
       const body = req.body;
       const newGender = await service.create(body);
       res.status(201).json(newGender);
+    } catch (error) {
+      next(error);
+    }
+  }
+);
+
+router.post(
+  "/add-movie",
+  validatorHandler(addMovieSchema),
+  async (req, res, next) => {
+    try {
+      const body = req.body;
+      const newMovie = await service.addMovie(body);
+      res.status(201).json(newMovie);
     } catch (error) {
       next(error);
     }
@@ -61,3 +76,4 @@ router.delete(
     }
   }
 );
+module.exports = router;

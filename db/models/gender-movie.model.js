@@ -1,27 +1,16 @@
 const { Model, DataTypes } = require("sequelize");
 
 const { MOVIE_TABLE } = require("./movie.model");
-const { CHARACTER_TABLE } = require("./character.model");
+const { GENDER_TABLE } = require("./gender.model");
 
-const MOVIE_CHARACTER_TABLE = "movies_characters";
+const GENDER_MOVIE_TABLE = "genders_movies";
 
-const MovieCharacterSchema = {
+const GenderMovieSchema = {
   id: {
     // allowNull: false,
     autoIncrement: true,
     primaryKey: true,
     type: DataTypes.INTEGER,
-  },
-  characterId: {
-    field: "character_id",
-    // allowNull: false,
-    type: DataTypes.INTEGER,
-    reference: {
-      model: CHARACTER_TABLE,
-      key: "id",
-    },
-    onUpdate: "CASCADE",
-    onDelete: "SET NULL",
   },
   movieId: {
     field: "movie_id",
@@ -34,20 +23,31 @@ const MovieCharacterSchema = {
     onUpdate: "CASCADE",
     onDelete: "SET NULL",
   },
+  genderId: {
+    field: "gender_id",
+    // allowNull: false,
+    type: DataTypes.INTEGER,
+    reference: {
+      model: GENDER_TABLE,
+      key: "id",
+    },
+    onUpdate: "CASCADE",
+    onDelete: "SET NULL",
+  },
 };
 
-class MovieCharacter extends Model {
+class GenderMovie extends Model {
   static config(sequelize) {
     return {
       sequelize,
-      tableName: MOVIE_CHARACTER_TABLE,
-      modelName: "MovieCharacter",
+      tableName: GENDER_MOVIE_TABLE,
+      modelName: "GenderMovie",
       timestamps: false,
     };
   }
 }
 module.exports = {
-  MovieCharacterSchema,
-  MovieCharacter,
-  MOVIE_CHARACTER_TABLE,
+  GenderMovieSchema,
+  GenderMovie,
+  GENDER_MOVIE_TABLE,
 };

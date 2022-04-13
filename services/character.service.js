@@ -9,9 +9,8 @@ class CharacterService {
   }
 
   async find() {
-    // const rta = await models.Character.findAll();
     const rta = await models.Character.findAll({
-      include: ["movies"],
+      attributes: ["id", "image", "name"],
     });
     return rta;
   }

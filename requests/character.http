@@ -2,20 +2,20 @@
 GET http://localhost:3000/api/v1/characters
 
 ### Getting character by name 
-GET http://localhost:3000/api/v1/characters?name=lalo
+GET http://localhost:3000/api/v1/characters?name=pepe
 
 ### Getting characters by age
-GET http://localhost:3000/api/v1/characters?age=22
+GET http://localhost:3000/api/v1/characters?age=20
 
 ### Getting characters by weight
-GET http://localhost:3000/api/v1/characters?weight=23.2
+GET http://localhost:3000/api/v1/characters?weight=76
 
 ### Getting characters by movies id
-GET http://localhost:3000/api/v1/characters?movies=6
+GET http://localhost:3000/api/v1/characters?movies=5
 
 
 ### Getting a character by id
-GET http://localhost:3000/api/v1/characters/5
+GET http://localhost:3000/api/v1/characters/3
 
 
 ### Creating a character
@@ -24,27 +24,27 @@ content-type: application/json
 
 {   
    "image": "http://placeimg.com/640/300",
-   "name": "simon",
-   "age": 60,
-   "weight": 224,
-   "history": "otra vez simon ...."
+   "name": "joako",
+   "age": 33,
+   "weight": 90,
+   "history": "otra vez kasooss ...."
    
 }
 
 ### Updating a character by id
-PUT http://localhost:3000/api/v1/characters/1
+PUT http://localhost:3000/api/v1/characters/3
 content-type: application/json
 
 {   
    "image": "http://placeimg.com/640/300",
-   "name": "queen",
-   "age": 22,
-   "weight": 212.2,
-   "history": "otra vez ...."
+   "name": "lore",
+   "age": 15,
+   "weight": 89,
+   "history": "otra vez lore...."
    
 }
 
 ### Deleting a character by id
-DELETE  http://localhost:3000/api/v1/characters/2
+DELETE http://localhost:3000/api/v1/characters/2
 
 

@@ -5,6 +5,12 @@ class GenderService {
     const newGender = await models.Gender.create(data);
     return newGender;
   }
+
+  async addMovie(data) {
+    const newMovie = await models.GenderMovie.create(data);
+    return newMovie;
+  }
+
   async find() {
     const rta = await models.Gender.findAll();
     return rta;

@@ -16,17 +16,35 @@ router.get("/", async (req, res, next) => {
   if (Object.keys(objQuery).length !== 0) {
     if (objQuery.hasOwnProperty("name")) {
       const charactersByName = await service.findByName(objQuery);
-      res.json(charactersByName);
+      if (charactersByName.length === 0) {
+        res.status(404).json({ message: "Character's name does not exist." });
+      } else {
+        res.json(charactersByName);
+      }
     } else if (objQuery.hasOwnProperty("age")) {
       const charactersByAges = await service.findByAges(objQuery);
-      res.json(charactersByAges);
+      if (charactersByAges.length === 0) {
+        res.status(404).json({ message: "Character's age does not exist." });
+      } else {
+        res.json(charactersByAges);
+      }
     } else if (objQuery.hasOwnProperty("weight")) {
       const charactersByWeight = await service.findByWeight(objQuery);
-      res.json(charactersByWeight);
+      if (charactersByWeight.length === 0) {
+        res.status(404).json({ message: "Character's weight does not exist." });
+      } else {
+        res.json(charactersByWeight);
+      }
     } else if (objQuery.hasOwnProperty("movies")) {
       const idMovie = objQuery["movies"];
       const charactersByMovies = await service.findByMovies(idMovie);
-      res.json(charactersByMovies);
+      if (charactersByMovies.length === 0) {
+        res
+          .status(404)
+          .json({ message: "Character's weight does not associate movie/s." });
+      } else {
+        res.json(charactersByMovies);
+      }
     } else {
       res.json({ message: "The query does not exist" });
     }

@@ -5,7 +5,13 @@ GET http://localhost:3000/api/v1/movies
 GET http://localhost:3000/api/v1/movies/2
 
 ### Getting a movie by name
-GET http://localhost:3000/api/v1/movies?name=theone
+GET http://localhost:3000/api/v1/movies?name=criptomania
+
+### Getting a movie by gender id
+GET http://localhost:3000/api/v1/movies?genre=1
+
+### Getting movies by order ASC | DESC
+GET http://localhost:3000/api/v1/movies?order=ascsd
 
 ### Creating a movie
 POST http://localhost:3000/api/v1/movies
@@ -13,7 +19,7 @@ content-type: application/json
 
 {   
    "image": "http://placeimg.com/640/400",
-   "title": "theone",
+   "title": "anabel",
    "score": 5
 }
 
@@ -22,8 +28,8 @@ POST http://localhost:3000/api/v1/movies/add-character
 content-type: application/json
 
 {   
-   "movieId": 6,
-   "characterId": 5   
+   "movieId": 2,
+   "characterId": 4
 }
 
 ### Updating a movie by id
@@ -33,8 +39,8 @@ content-type: application/json
 {   
    "image": "http://placeimg.com/640/300",
    "title": "king of kings",
-   "score": 2   
+   "score": 5   
 }
 
 ### Deleting a movie by id
-DELETE  http://localhost:3000/api/v1/movies/4
+DELETE  http://localhost:3000/api/v1/movies/1

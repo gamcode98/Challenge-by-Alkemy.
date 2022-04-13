@@ -16,7 +16,28 @@ router.get("/", async (req, res, next) => {
     if (objQuery.hasOwnProperty("name")) {
       let objMovie = { title: `${objQuery["name"]}` };
       const movieByName = await service.findByName(objMovie);
-      res.json(movieByName);
+      if (movieByName.length === 0) {
+        res.status(404).json({ message: "Movie's name does not exist." });
+      } else {
+        res.json(movieByName);
+      }
+    } else if (objQuery.hasOwnProperty("genre")) {
+      const idGender = objQuery["genre"];
+      const movieByGender = await service.findByGender(idGender);
+      if (movieByGender.length === 0) {
+        res.status(404).json({ message: "Movie's gender does not exist." });
+      } else {
+        res.json(movieByGender);
+      }
+      res.json(movieByGender);
+    } else if (objQuery.hasOwnProperty("order")) {
+      const order = objQuery["order"].toUpperCase();
+      const moviesByOrder = await service.findByOrder(order);
+      if (moviesByOrder.length === 0) {
+        res.status(404).json({ message: "Movie's order does not exist." });
+      } else {
+        res.json(moviesByOrder);
+      }
     } else {
       res.json({ message: "The query does not exist" });
     }
