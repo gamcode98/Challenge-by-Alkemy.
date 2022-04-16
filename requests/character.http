@@ -1,51 +1,64 @@
 ### Getting all characters
 GET http://localhost:3000/api/v1/characters
+# Authorization: Bearer token
+
 
 ### Getting character by name 
-GET http://localhost:3000/api/v1/characters?name=pepe
+GET http://localhost:3000/api/v1/characters?name=sakyra
+# Authorization: Bearer token
+
 
 ### Getting characters by age
-GET http://localhost:3000/api/v1/characters?age=20
+GET http://localhost:3000/api/v1/characters?age=2
+# Authorization: Bearer token
+
 
 ### Getting characters by weight
-GET http://localhost:3000/api/v1/characters?weight=76
+GET http://localhost:3000/api/v1/characters?weight=20
+# Authorization: Bearer token
+
 
 ### Getting characters by movies id
-GET http://localhost:3000/api/v1/characters?movies=5
+GET http://localhost:3000/api/v1/characters?movies=8
+# Authorization: Bearer token
 
 
 ### Getting a character by id
-GET http://localhost:3000/api/v1/characters/3
+GET http://localhost:3000/api/v1/characters/8
+# Authorization: Bearer token
 
 
 ### Creating a character
 POST http://localhost:3000/api/v1/characters
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQsImlhdCI6MTY0OTg1NTcxMH0.w1v3C4UqhkeU_leD5NDy_V1kKyZQCVuPo16k2-CQx5g
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQsImlhdCI6MTY1MDA1MzI0MH0.K_XXRIuPBfcuJYHcqBp2ifr38NScomSFKL5bpKCJQqs
 
 {   
    "image": "http://placeimg.com/640/300",
-   "name": "sakyra",
-   "age": 45,
-   "weight": 56,
-   "history": "otra vez dakuy ...."
+   "name": "lolo",
+   "age": 24,
+   "weight": 80,
+   "history": "otra vez lolo ...."
    
 }
 
 ### Updating a character by id
-PUT http://localhost:3000/api/v1/characters/3
+PUT http://localhost:3000/api/v1/characters/8
 content-type: application/json
+# Authorization: Bearer token
+
 
 {   
    "image": "http://placeimg.com/640/300",
-   "name": "lore",
+   "name": "pikachu",
    "age": 15,
    "weight": 89,
-   "history": "otra vez lore...."
+   "history": "otra vez picacachu...."
    
 }
 
 ### Deleting a character by id
-DELETE http://localhost:3000/api/v1/characters/2
+DELETE http://localhost:3000/api/v1/characters/6
+# Authorization: Bearer token
 
 

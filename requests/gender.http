@@ -7,7 +7,7 @@ POST http://localhost:3000/api/v1/genders
 content-type: application/json
 
 {   
-   "name": "terror",
+   "name": "violence",
    "image": "http://placeimg.com/640/400"
 }
 
@@ -16,8 +16,8 @@ POST http://localhost:3000/api/v1/genders/add-movie
 content-type: application/json
 
 {   
-   "movieId": 2,
-   "genderId": 1
+   "movieId": 4,
+   "genderId": 5
 }
 
 
@@ -30,6 +30,6 @@ content-type: application/json
    "image": "http://placeimg.com/640/400"
 }
 ### Deleting a gender by id
-DELETE  http://localhost:3000/api/v1/genders/2
+DELETE  http://localhost:3000/api/v1/genders/3
 
 

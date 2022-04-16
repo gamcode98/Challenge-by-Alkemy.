@@ -2,7 +2,7 @@
 GET http://localhost:3000/api/v1/movies
 
 ### Getting a movie by id
-GET http://localhost:3000/api/v1/movies/2
+GET http://localhost:3000/api/v1/movies/4
 
 ### Getting a movie by name
 GET http://localhost:3000/api/v1/movies?name=criptomania
@@ -19,17 +19,17 @@ content-type: application/json
 
 {   
    "image": "http://placeimg.com/640/400",
-   "title": "anabel",
+   "title": "batman vs superman",
    "score": 5
 }
 
-### Associate a movie with a character 
+### Associate a movie with a character by id
 POST http://localhost:3000/api/v1/movies/add-character
 content-type: application/json
 
 {   
-   "movieId": 2,
-   "characterId": 4
+   "movieId": 4,
+   "characterId": 8
 }
 
 ### Updating a movie by id
@@ -43,4 +43,4 @@ content-type: application/json
 }
 
 ### Deleting a movie by id
-DELETE  http://localhost:3000/api/v1/movies/1
+DELETE  http://localhost:3000/api/v1/movies/4

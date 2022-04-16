@@ -43,7 +43,7 @@ router.get("/", async (req, res, next) => {
       if (charactersByMovies.length === 0) {
         res
           .status(404)
-          .json({ message: "Character's weight does not associate movie/s." });
+          .json({ message: "Character's does not associate movie/s." });
       } else {
         res.json(charactersByMovies);
       }

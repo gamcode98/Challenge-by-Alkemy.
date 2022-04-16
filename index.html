@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Frontend</title>
 </head>
 
 <body>
@@ -15,7 +15,7 @@
   <script>
     const d = document;
     const $btn = d.getElementById("btn")
-    let url = "http://localhost:300/characters"
+    let url = "http://localhost:3000/api/v1/characters"
     const getData = async (youUrl) => {
       try {
         const res = await fetch(youUrl)
@@ -30,10 +30,7 @@
         console.log(message)
       }
     }
-    $btn.addEventListener("click", () => {
-      getData(url)
-
-    })
+    $btn.addEventListener("click", () => getData(url))
   </script>
 </body>
 

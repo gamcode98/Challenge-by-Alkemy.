@@ -1,5 +1,7 @@
 const express = require("express");
 const UserService = require("../services/user.service");
+const sgMail = require("./../utils/sendgrid");
+const { config } = require("./../config/config");
 const validatorHandler = require("../middlewares/validator.handler");
 const {
   createUserSchema,
@@ -36,9 +38,16 @@ router.post(
   "/register",
   validatorHandler(createUserSchema, "body"),
   async (req, res, next) => {
+    const msg = {
+      to: "garbirar@gmail.com", // Write receptor email
+      from: config.email,
+      subject: "Challenge by Alkemy",
+      text: "Welcome to the challenge",
+    };
     try {
       const body = req.body;
       const newUser = await service.create(body);
+      await sgMail.send(msg);
       res.status(201).json(newUser);
     } catch (error) {
       next(error);

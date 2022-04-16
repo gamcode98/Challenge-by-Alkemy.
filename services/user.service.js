@@ -12,7 +12,9 @@ class UserService {
     return newUser;
   }
   async find() {
-    const rta = await models.User.findAll();
+    const rta = await models.User.findAll({
+      attributes: { exclude: ["password"] },
+    });
     return rta;
   }
   async findByEmail(email) {
