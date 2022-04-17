@@ -1,5 +1,47 @@
 # Challenge Backend - NodeJS
 
+## Como iniciar el proyecto
+
+### Instalar las depencias correspondientes
+
+```console
+npm i
+```
+
+### Iniciar docker
+
+- Ejecutar el script
+
+```console
+./docker-init.sh
+```
+
+El cual contiene los comandos necesarios para arrancar el administrador de la base de datos **pgadmin**, la base de datos **postgres**. Además de mostrar información de la base de datos (ip, nombre de la base de datos, contraseña, usuario).
+
+### Configuración de variables de entorno
+
+- Se proporciona un archivo **.env** como ejemplo.
+
+### Iniciar el servidor
+
+- Ejecutar el siguiente comando:
+
+```console
+npm run dev
+```
+
+### Operaciones de la API
+
+Se proporciona una carpeta en donde se encuentra documentado los endpoints correspondientes.
+Para hacer uso de los mismos se debe usar la extensión de VScode [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
+
+### Consumo de la API
+
+Se proporciona un archivo **index.html** en el cual se puede probar que es posible consumirla desde el frontend.
+Para simular un servidor se puede usar [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
+
+---
+
 ## Objetivo
 
 Desarrollar una API para explorar el mundo de Disney, la cual permitirá conocer y modificar los personajes que lo componen y entender en qué películas estos participaron. Por otro lado, deberá exponer la información para que cualquier frontend pueda consumirla.
@@ -118,45 +160,3 @@ De forma opcional, se podrán agregar tests de los diferentes endpoints de la AP
 - Acceso a recursos inexistentes en endpoints de detalle
 
 Los tests pueden realizarse utilizando Mocha + Chai.
-
----
-
-## Como iniciar el proyecto
-
-### Instalar las depencias correspondientes
-
-```console
-npm i
-```
-
-### Iniciar docker
-
-- Ejecutar el script
-
-```console
-./docker-init.sh
-```
-
-El cual contiene los comandos necesarios para arrancar el administrador de la base de datos **pgadmin**, la base de datos **postgres**. Además de mostrar información de la base de datos (ip, nombre de la base de datos, contraseña, usuario).
-
-### Configuración de variables de entorno
-
-- Se proporciona un archivo **.env** como ejemplo.
-
-### Iniciar el servidor
-
-- Ejecutar el siguiente comando:
-
-```console
-npm run dev
-```
-
-### Operaciones de la API
-
-Se proporciona una carpeta en donde se encuentra documentado los endpoints correspondientes.
-Para hacer uso de los mismos se debe usar la extensión de VScode [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
-
-### Consumo de la API
-
-Se proporciona un archivo **index.html** en el cual se puede probar que es posible consumirla desde el frontend.
-Para simular un servidor se puede usar [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)

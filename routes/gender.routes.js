@@ -8,19 +8,26 @@ const {
   addMovieSchema,
 } = require("./../schemas/gender.schema");
 const router = express.Router();
+const passport = require("passport");
+
 const service = new GenderService();
 
-router.get("/", async (req, res, next) => {
-  try {
-    const genders = await service.find();
-    res.json(genders);
-  } catch (error) {
-    next(error);
+router.get(
+  "/",
+  passport.authenticate("jwt", { session: false }),
+  async (req, res, next) => {
+    try {
+      const genders = await service.find();
+      res.json(genders);
+    } catch (error) {
+      next(error);
+    }
   }
-});
+);
 
 router.post(
   "/",
+  passport.authenticate("jwt", { session: false }),
   validatorHandler(createGenderSchema, "body"),
   async (req, res, next) => {
     try {
@@ -35,6 +42,7 @@ router.post(
 
 router.post(
   "/add-movie",
+  passport.authenticate("jwt", { session: false }),
   validatorHandler(addMovieSchema),
   async (req, res, next) => {
     try {
@@ -49,6 +57,7 @@ router.post(
 
 router.put(
   "/:id",
+  passport.authenticate("jwt", { session: false }),
   validatorHandler(getGenderSchema, "params"),
   validatorHandler(updateGenderSchema, "body"),
   async (req, res, next) => {
@@ -65,6 +74,7 @@ router.put(
 
 router.delete(
   "/:id",
+  passport.authenticate("jwt", { session: false }),
   validatorHandler(getGenderSchema, "params"),
   async (req, res, next) => {
     try {

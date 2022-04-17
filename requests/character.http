@@ -1,37 +1,36 @@
 ### Getting all characters
 GET http://localhost:3000/api/v1/characters
-# Authorization: Bearer token
+Authorization: Bearer 
 
 
 ### Getting character by name 
-GET http://localhost:3000/api/v1/characters?name=sakyra
-# Authorization: Bearer token
+GET http://localhost:3000/api/v1/characters?name=lolo
+Authorization: Bearer 
 
 
 ### Getting characters by age
-GET http://localhost:3000/api/v1/characters?age=2
-# Authorization: Bearer token
+GET http://localhost:3000/api/v1/characters?age=24
+Authorization: Bearer 
 
 
 ### Getting characters by weight
-GET http://localhost:3000/api/v1/characters?weight=20
-# Authorization: Bearer token
+GET http://localhost:3000/api/v1/characters?weight=80
+Authorization: Bearer 
 
 
 ### Getting characters by movies id
-GET http://localhost:3000/api/v1/characters?movies=8
-# Authorization: Bearer token
-
+GET http://localhost:3000/api/v1/characters?movies=6
+Authorization: Bearer 
 
 ### Getting a character by id
-GET http://localhost:3000/api/v1/characters/8
-# Authorization: Bearer token
+GET http://localhost:3000/api/v1/characters/10
+Authorization: Bearer 
 
 
 ### Creating a character
 POST http://localhost:3000/api/v1/characters
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQsImlhdCI6MTY1MDA1MzI0MH0.K_XXRIuPBfcuJYHcqBp2ifr38NScomSFKL5bpKCJQqs
+Authorization: Bearer 
 
 {   
    "image": "http://placeimg.com/640/300",
@@ -45,20 +44,20 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQsImlhdCI6M
 ### Updating a character by id
 PUT http://localhost:3000/api/v1/characters/8
 content-type: application/json
-# Authorization: Bearer token
+Authorization: Bearer 
 
 
 {   
    "image": "http://placeimg.com/640/300",
-   "name": "pikachu",
+   "name": "lola",
    "age": 15,
    "weight": 89,
-   "history": "otra vez picacachu...."
+   "history": "otra vez lola...."
    
 }
 
 ### Deleting a character by id
-DELETE http://localhost:3000/api/v1/characters/6
-# Authorization: Bearer token
+DELETE http://localhost:3000/api/v1/characters/8
+Authorization: Bearer 
 
 

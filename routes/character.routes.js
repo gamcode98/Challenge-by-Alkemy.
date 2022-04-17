@@ -13,55 +13,62 @@ const passport = require("passport");
 
 const service = new CharacterService();
 
-router.get("/", async (req, res, next) => {
-  const objQuery = req.query;
-  if (Object.keys(objQuery).length !== 0) {
-    if (objQuery.hasOwnProperty("name")) {
-      const charactersByName = await service.findByName(objQuery);
-      if (charactersByName.length === 0) {
-        res.status(404).json({ message: "Character's name does not exist." });
+router.get(
+  "/",
+  passport.authenticate("jwt", { session: false }),
+  async (req, res, next) => {
+    const objQuery = req.query;
+    if (Object.keys(objQuery).length !== 0) {
+      if (objQuery.hasOwnProperty("name")) {
+        const charactersByName = await service.findByName(objQuery);
+        if (charactersByName.length === 0) {
+          res.status(404).json({ message: "Character's name does not exist." });
+        } else {
+          res.json(charactersByName);
+        }
+      } else if (objQuery.hasOwnProperty("age")) {
+        const charactersByAges = await service.findByAges(objQuery);
+        if (charactersByAges.length === 0) {
+          res.status(404).json({ message: "Character's age does not exist." });
+        } else {
+          res.json(charactersByAges);
+        }
+      } else if (objQuery.hasOwnProperty("weight")) {
+        const charactersByWeight = await service.findByWeight(objQuery);
+        if (charactersByWeight.length === 0) {
+          res
+            .status(404)
+            .json({ message: "Character's weight does not exist." });
+        } else {
+          res.json(charactersByWeight);
+        }
+      } else if (objQuery.hasOwnProperty("movies")) {
+        const idMovie = objQuery["movies"];
+        const charactersByMovies = await service.findByMovies(idMovie);
+        if (charactersByMovies.length === 0) {
+          res
+            .status(404)
+            .json({ message: "Character's does not associate movie/s." });
+        } else {
+          res.json(charactersByMovies);
+        }
       } else {
-        res.json(charactersByName);
-      }
-    } else if (objQuery.hasOwnProperty("age")) {
-      const charactersByAges = await service.findByAges(objQuery);
-      if (charactersByAges.length === 0) {
-        res.status(404).json({ message: "Character's age does not exist." });
-      } else {
-        res.json(charactersByAges);
-      }
-    } else if (objQuery.hasOwnProperty("weight")) {
-      const charactersByWeight = await service.findByWeight(objQuery);
-      if (charactersByWeight.length === 0) {
-        res.status(404).json({ message: "Character's weight does not exist." });
-      } else {
-        res.json(charactersByWeight);
-      }
-    } else if (objQuery.hasOwnProperty("movies")) {
-      const idMovie = objQuery["movies"];
-      const charactersByMovies = await service.findByMovies(idMovie);
-      if (charactersByMovies.length === 0) {
-        res
-          .status(404)
-          .json({ message: "Character's does not associate movie/s." });
-      } else {
-        res.json(charactersByMovies);
+        res.json({ message: "The query does not exist." });
       }
     } else {
-      res.json({ message: "The query does not exist" });
-    }
-  } else {
-    try {
-      const characters = await service.find();
-      res.json(characters);
-    } catch (error) {
-      next(error);
+      try {
+        const characters = await service.find();
+        res.json(characters);
+      } catch (error) {
+        next(error);
+      }
     }
   }
-});
+);
 
 router.get(
   "/:id",
+  passport.authenticate("jwt", { session: false }),
   validatorHandler(getCharacterSchema, "params"),
   async (req, res, next) => {
     try {
@@ -91,6 +98,7 @@ router.post(
 
 router.put(
   "/:id",
+  passport.authenticate("jwt", { session: false }),
   validatorHandler(getCharacterSchema, "params"),
   validatorHandler(updateCharacterSchema, "body"),
   async (req, res, next) => {
@@ -107,6 +115,7 @@ router.put(
 
 router.delete(
   "/:id",
+  passport.authenticate("jwt", { session: false }),
   validatorHandler(getCharacterSchema, "params"),
   async (req, res, next) => {
     try {

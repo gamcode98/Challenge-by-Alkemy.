@@ -38,14 +38,14 @@ router.post(
   "/register",
   validatorHandler(createUserSchema, "body"),
   async (req, res, next) => {
+    const body = req.body;
     const msg = {
-      to: "garbirar@gmail.com", // Write receptor email
+      to: body.email,
       from: config.email,
       subject: "Challenge by Alkemy",
       text: "Welcome to the challenge",
     };
     try {
-      const body = req.body;
       const newUser = await service.create(body);
       await sgMail.send(msg);
       res.status(201).json(newUser);

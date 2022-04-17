@@ -15,8 +15,7 @@ class MovieService {
 
   async find() {
     const rta = await models.Movie.findAll({
-      attributes: ["id", "image", "title", "createdAt"],
-      include: ["genders"],
+      attributes: ["image", "title", "createdAt"],
     });
     return rta;
   }
@@ -38,6 +37,10 @@ class MovieService {
         },
       ],
     });
+
+    if (!rta) {
+      throw boom.notFound("Gender not found");
+    }
     return rta;
   }
 

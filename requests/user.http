@@ -7,8 +7,8 @@ POST http://localhost:3000/api/v1/users/register
 content-type: application/json
 
 {   
-  "username": "michi",
-  "email": "michi@gmail.com",
+  "username": "gabriel",
+  "email": "gam@gmail.com",
   "password": "123"
 }
 
@@ -17,7 +17,7 @@ POST http://localhost:3000/api/v1/auth/login
 content-type: application/json
 
 {
-  "email": "michi@gmail.com",
+  "email": "lolo@gmail.com",
   "password": "123"
 }
 
@@ -32,4 +32,4 @@ content-type: application/json
 }
 
 ### Delete a user by id
-DELETE http://localhost:3000/api/v1/users/1
+DELETE http://localhost:3000/api/v1/users/9

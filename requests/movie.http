@@ -1,46 +1,57 @@
 ### Getting all movies
 GET http://localhost:3000/api/v1/movies
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjUsImlhdCI6MTY1MDIxNDcyN30.ysStgjnm2vYNJvVQwvigl0IHY9_Z_SdWQ6PXGxOzeK4
+
 
 ### Getting a movie by id
-GET http://localhost:3000/api/v1/movies/4
+GET http://localhost:3000/api/v1/movies/30
+Authorization: Bearer 
+
 
 ### Getting a movie by name
-GET http://localhost:3000/api/v1/movies?name=criptomania
+GET http://localhost:3000/api/v1/movies?name=spiderman
+Authorization: Bearer 
 
 ### Getting a movie by gender id
-GET http://localhost:3000/api/v1/movies?genre=1
+GET http://localhost:3000/api/v1/movies?genre=2
+Authorization: Bearer 
 
 ### Getting movies by order ASC | DESC
-GET http://localhost:3000/api/v1/movies?order=ascsd
+GET http://localhost:3000/api/v1/movies?order=ASC
+Authorization: Bearer 
 
 ### Creating a movie
 POST http://localhost:3000/api/v1/movies
 content-type: application/json
+Authorization: Bearer 
 
 {   
    "image": "http://placeimg.com/640/400",
-   "title": "batman vs superman",
+   "title": "saw 10",
    "score": 5
 }
 
 ### Associate a movie with a character by id
 POST http://localhost:3000/api/v1/movies/add-character
 content-type: application/json
+Authorization: Bearer 
 
 {   
-   "movieId": 4,
-   "characterId": 8
+   "movieId": 6,
+   "characterId": 10
 }
 
 ### Updating a movie by id
-PUT http://localhost:3000/api/v1/movies/2
+PUT http://localhost:3000/api/v1/movies/5
 content-type: application/json
+Authorization: Bearer 
 
 {   
    "image": "http://placeimg.com/640/300",
-   "title": "king of kings",
+   "title": "batman 2022",
    "score": 5   
 }
 
 ### Deleting a movie by id
-DELETE  http://localhost:3000/api/v1/movies/4
+DELETE  http://localhost:3000/api/v1/movies/5
+Authorization: Bearer 

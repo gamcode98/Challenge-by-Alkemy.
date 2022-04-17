@@ -1,35 +1,40 @@
 ### Getting all genders
 GET http://localhost:3000/api/v1/genders
+Authorization: Bearer 
 
 
 ### Creating a gender
 POST http://localhost:3000/api/v1/genders
 content-type: application/json
+Authorization: Bearer 
 
 {   
-   "name": "violence",
+   "name": "cartoon",
    "image": "http://placeimg.com/640/400"
 }
 
 ### Associate a movie with a gender 
 POST http://localhost:3000/api/v1/genders/add-movie
 content-type: application/json
+Authorization: Bearer 
 
 {   
-   "movieId": 4,
-   "genderId": 5
+   "movieId": 3,
+   "genderId": 2
 }
 
 
 ### Updating a gender by id
-PUT http://localhost:3000/api/v1/genders/1
+PUT http://localhost:3000/api/v1/genders/6
 content-type: application/json
+Authorization: Bearer 
 
 {   
-   "name": "comedy",
+   "name": "suspence",
    "image": "http://placeimg.com/640/400"
 }
 ### Deleting a gender by id
-DELETE  http://localhost:3000/api/v1/genders/3
+DELETE http://localhost:3000/api/v1/genders/7
+Authorization: Bearer 
 
 
